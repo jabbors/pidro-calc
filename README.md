@@ -1,4 +1,10 @@
-# app
+# pidro-calc
+
+A webapp for counting points in https://sv.wikipedia.org/wiki/Pidro.
+
+_Disclaimer! Nothing is saved. If you close and open the webapp again everything will be lost. Even if you hard refresh the page everything will be lost._
+
+App is availble jabbors.github.io/pidro-calc/.
 
 ## Project setup
 ```
