@@ -26,10 +26,12 @@
   </div>
   <div v-if="games.length">
   <div v-for="game in games" :key="game.id">
-    <table>
-    <tr><th>vi</th><th>de</th></tr>
-    <tr v-for="deal in game.deals" :key="deal.we"><td>{{ deal.we }}</td><td>{{ deal.they }}</td></tr>
-    </table>
+    <div v-if="game.deals.length">
+      <table>
+      <tr><th>vi</th><th>de</th></tr>
+      <tr v-for="deal in game.deals" :key="deal.we"><td>{{ deal.we }}</td><td>{{ deal.they }}</td></tr>
+      </table>
+    </div>
   </div>
   </div>
 </template>
