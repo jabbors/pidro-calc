@@ -21,6 +21,7 @@
   <div v-else>
     <button @click="stopGame">avsluta spel</button>
     <button @click="newDeal">ny runda</button>
+    <button v-if="deleteLastDeal" @click="deleteDeal">stryk runda</button>
   </div>
   </div>
   <div v-if="games.length">
@@ -52,10 +53,24 @@ export default {
     }
     const stopGame = () => {
       gameStarted.value = null
+      deleteLastDeal.value = null
     }
     const dealInProgress = ref(null)
     const newDeal = () => {
       dealInProgress.value = 1
+    }
+    const deleteLastDeal = ref(null)
+    const deleteDeal = () => {
+      let index = currentGame-1
+      games.value[index].deals.pop()
+      if (games.value[index].deals.length > 0) {
+        games.value[index].we = games.value[index].deals.at(-1).we
+        games.value[index].they = games.value[index].deals.at(-1).they
+      } else {
+        games.value[index].we = 0
+        games.value[index].they = 0
+      }
+      deleteLastDeal.value = null
     }
     const dealTeam = ref(null)
     const clickTeam = (team) => {
@@ -90,6 +105,7 @@ export default {
       games.value[index].we = we
       games.value[index].they = they
       games.value[index].deals.push({"we":we, "they":they, "team":dealTeam, "bid":dealBid, "score":score})
+      deleteLastDeal.value = 1
       if (we >= 62) {
         wins.value.we++
         stopGame()
@@ -103,7 +119,7 @@ export default {
       dealBid.value = null
     }
 
-    return { wins, games, gameStarted, startGame, stopGame, dealInProgress, newDeal, dealTeam, clickTeam, dealBid, clickBid, clickScore}
+    return { wins, games, gameStarted, startGame, stopGame, dealInProgress, newDeal, deleteLastDeal, deleteDeal, dealTeam, clickTeam, dealBid, clickBid, clickScore}
   }
 }
 </script>
