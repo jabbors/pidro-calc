@@ -108,13 +108,21 @@ export default {
       games.value[index].they = they
       games.value[index].deals.push({"we":we, "they":they, "team":dealTeam, "bid":dealBid, "score":score})
       deleteLastDeal.value = 1
-      if (we >= 62) {
-        wins.value.we++
+      if (we >= 62 || they >=62) {
         stopGame()
-      }
-      if (they >= 62) {
-        wins.value.they++
-        stopGame()
+        if (dealTeam.value == "we") {
+          if (we >= 62) {
+            wins.value.we++
+          } else {
+            wins.value.they++
+          }
+        } else {
+          if (they >= 62) {
+            wins.value.they++
+          } else {
+            wins.value.we++
+          }
+        }
       }
       dealInProgress.value = null
       dealTeam.value = null
