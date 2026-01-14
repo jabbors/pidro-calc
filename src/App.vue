@@ -168,4 +168,9 @@ td.deal-won {
 td.deal-lost {
   background-color: #F08080;
 }
+
+button {
+  margin-left:1px;
+  margin-right:1px;
+}
 </style>
