@@ -29,7 +29,10 @@
     <div v-if="game.deals.length">
       <table>
       <tr><th>vi</th><th>de</th></tr>
-      <tr v-for="deal in game.deals" :key="deal.we"><td>{{ deal.we }}</td><td>{{ deal.they }}</td></tr>
+      <tr v-for="deal in game.deals" :key="deal.we">
+        <td :class="{ 'deal-won' : deal.team === 'we' && deal.score >= deal.bid, 'deal-lost' : deal.team === 'we' && deal.score < deal.bid }" class="border-right">{{ deal.we }}</td>
+        <td :class="{ 'deal-won' : deal.team === 'they' && deal.score >= deal.bid, 'deal-lost' : deal.team === 'they' && deal.score < deal.bid }">{{ deal.they }}</td>
+      </tr>
       </table>
     </div>
   </div>
@@ -147,5 +150,22 @@ export default {
 table {
     margin-left: auto;
     margin-right: auto;
+    border-collapse: collapse;
+}
+
+th {
+  border-bottom:1px solid;
+}
+
+td.border-right {
+  border-right:1px solid;
+}
+
+td.deal-won {
+  background-color: #90EE90;
+}
+
+td.deal-lost {
+  background-color: #F08080;
 }
 </style>
