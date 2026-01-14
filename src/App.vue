@@ -106,7 +106,7 @@ export default {
       }
       games.value[index].we = we
       games.value[index].they = they
-      games.value[index].deals.push({"we":we, "they":they, "team":dealTeam, "bid":dealBid, "score":score})
+      games.value[index].deals.push({"we":we, "they":they, "team":dealTeam.value, "bid":dealBid.value, "score":score})
       deleteLastDeal.value = 1
       if (we >= 62 || they >=62) {
         stopGame()
