@@ -1,5 +1,5 @@
 <template>
-  <span>pidro-calc</span>
+  <span>Ställning</span>
   <div><span>{{ wins.we }}</span> - <span>{{ wins.they }}</span></div>
   <div v-if="!gameStarted"><button @click="startGame">starta spel</button></div>
   <div v-if="gameStarted">
