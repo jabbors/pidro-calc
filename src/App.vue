@@ -28,11 +28,15 @@
   <div v-for="game in games" :key="game.id">
     <div v-if="game.deals.length">
       <table>
-      <tr><th>vi</th><th>de</th></tr>
-      <tr v-for="deal in game.deals" :key="deal.we">
-        <td :class="{ 'deal-won' : deal.team === 'we' && deal.score >= deal.bid, 'deal-lost' : deal.team === 'we' && deal.score < deal.bid }" class="border-right">{{ deal.we }}</td>
-        <td :class="{ 'deal-won' : deal.team === 'they' && deal.score >= deal.bid, 'deal-lost' : deal.team === 'they' && deal.score < deal.bid }">{{ deal.they }}</td>
-      </tr>
+        <thead>
+          <tr><th>vi</th><th>de</th></tr>
+        </thead>
+        <tbody>
+          <tr v-for="deal in game.deals" :key="deal.we">
+            <td :class="{ 'deal-won' : deal.team === 'we' && deal.score >= deal.bid, 'deal-lost' : deal.team === 'we' && deal.score < deal.bid }" class="border-right">{{ deal.we }}</td>
+            <td :class="{ 'deal-won' : deal.team === 'they' && deal.score >= deal.bid, 'deal-lost' : deal.team === 'they' && deal.score < deal.bid }">{{ deal.they }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
