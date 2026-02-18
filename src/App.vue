@@ -41,6 +41,8 @@
 
 <script>
 import { ref } from 'vue';
+require('./assets/normalize.css')
+require('./assets/skeleton.css')
 
 export default {
   name: 'App',
