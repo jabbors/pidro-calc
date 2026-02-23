@@ -54,12 +54,11 @@ export default {
   },
   setup() {
     const wins = ref({"we": 0, "they":0})
-    let currentGame = 0
     const games = ref([])
     const gameStarted = ref(null)
     const startGame = () => {
-      currentGame++
-      games.value.push({"id":currentGame, "we":0, "they":0, "deals":[]})
+      let newId = games.value.length + 1
+      games.value.unshift({"id":newId, "we":0, "they":0, "deals":[]})
       gameStarted.value = 1
     }
     const stopGame = () => {
@@ -72,7 +71,7 @@ export default {
     }
     const deleteLastDeal = ref(null)
     const deleteDeal = () => {
-      let index = currentGame-1
+      let index = 0
       games.value[index].deals.pop()
       if (games.value[index].deals.length > 0) {
         games.value[index].we = games.value[index].deals.at(-1).we
@@ -92,7 +91,7 @@ export default {
       dealBid.value = bid
     }
     const clickScore = (score) => {
-      let index = currentGame-1
+      let index = 0
       let we = 0
       let they = 0
       let reminder = 14 - score
