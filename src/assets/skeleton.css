@@ -324,8 +324,8 @@ pre > code {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 th,
 td {
-  padding: 12px 15px;
-  text-align: left;
+  padding-top: 1px;
+  padding-bottom: 1px;
   border-bottom: 1px solid #E1E1E1; }
 th:first-child,
 td:first-child {

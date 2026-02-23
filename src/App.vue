@@ -29,7 +29,7 @@
     <div v-if="game.deals.length">
       <table>
         <thead>
-          <tr><th>vi</th><th>de</th></tr>
+          <tr><th width="40px">vi</th><th width="40px">de</th></tr>
         </thead>
         <tbody>
           <tr v-for="deal in game.deals" :key="deal.we">
@@ -160,6 +160,11 @@ table {
 
 th {
   border-bottom:1px solid;
+  text-align: center;
+}
+
+td {
+  text-align: center;
 }
 
 td.border-right {
