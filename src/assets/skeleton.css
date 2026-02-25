@@ -325,8 +325,7 @@ pre > code {
 th,
 td {
   padding-top: 1px;
-  padding-bottom: 1px;
-  border-bottom: 1px solid #E1E1E1; }
+  padding-bottom: 1px; }
 th:first-child,
 td:first-child {
   padding-left: 0; }
